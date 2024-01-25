@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "MainView";
+    var db = new StuCrsDBEntities();
+}
+
+<h2>MainView</h2> 
+
+
+@Html.Partial("~/Views/Student/AddStudent.cshtml")
+
+<hr />
+@Html.Partial("~/Views/Student/StudentList.cshtml", db.StudentCourses.ToList())
+

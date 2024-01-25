@@ -1,0 +1,62 @@
+﻿@model List<AttencandeSystemWebApp.StudentCourse>
+
+@{
+    ViewBag.Title = "AttendanceView";
+}
+
+<h2>AttendanceView</h2>
+
+@using (Html.BeginForm()) {
+    <table class="table">
+        <tr>
+            <th>
+                Rollno
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Subject
+            </th>
+            <th>Mark</th>
+        </tr>
+
+        @for (int i = 0; i < Model.Count; i++) {
+            @Html.HiddenFor(e => Model[i].rollno)
+            @Html.HiddenFor(e => Model[i].name)
+            @Html.HiddenFor(e => Model[i].subject)
+            @Html.HiddenFor(e => Model[i].isPresent, new { id = Model[i].rollno, Value = "P" })
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => Model[i].rollno)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model[i].name)
+
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model[i].subject)
+
+                </td>
+                <td>
+                    <button type="button" onclick="changeState('@Model[i].rollno')" class="btn btn-outline-success" id="btn_@Model[i].rollno">P</button>
+                </td>
+            </tr>
+        }
+
+
+
+
+    </table>
+    <input type="submit" />
+}
+
+<script>
+    const changeState = (id) => {
+        let ele = document.getElementById(`btn_${id}`);
+        let val = ele.innerHTML == "P" ? "A" : "P";
+        ele.innerHTML = val;
+        document.getElementById(`${id}`).value = val;
+    }
+</script>
