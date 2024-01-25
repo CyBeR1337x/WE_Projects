@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/AttencandeSystemWebApp/FileContentIndex
+/.vs/AttencandeSystemWebApp/config
+/.vs/AttencandeSystemWebApp/v17/.suo
+/AttencandeSystemWebApp/bin
+/AttencandeSystemWebApp/obj/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs
